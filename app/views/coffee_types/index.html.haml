@@ -1,0 +1,34 @@
+%h1 Listing coffee_types
+ 
+%table
+  %tr
+    %th Name
+    %th Image
+    %th Type
+    %th Temp
+    %th Caffeinated
+    %th Basic Info
+    %th Price
+    %th Full Info
+    %th Drinks
+    %th
+    %th
+ 
+  - @coffee_types.each do |coffee_type|
+    %tr
+      %td= coffee_type.name
+      %td= coffee_type.image
+      %td= coffee_type.type_of_coffee
+      %td= coffee_type.temp
+      %td= coffee_type.caffeinated
+      %td= coffee_type.basicInfo
+      %td= coffee_type.price
+      %td= coffee_type.fullInfo
+      %td= coffee_type.drinks
+      %td= link_to 'Show', coffee_type
+      %td= link_to 'Edit', edit_coffee_type_path(coffee_type)
+      %td= link_to 'Destroy', coffee_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+ 
+%br
+ 
+= link_to 'New Coffee type', new_coffee_type_path

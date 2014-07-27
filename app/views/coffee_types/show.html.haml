@@ -1,0 +1,35 @@
+%p#notice= notice
+ 
+%p
+  %b Name:
+  = @coffee_type.name
+%p
+  %b Image:
+  = @coffee_type.image
+%p
+  %b Type:
+  = @coffee_type.type_of_coffee
+%p
+  %b Temp:
+  = @coffee_type.temp
+%p
+  %b Caffeinated:
+  = @coffee_type.caffeinated
+%p
+  %b Basic Info:
+  = @coffee_type.basicInfo
+%p
+  %b Price:
+  = @coffee_type.price
+ 
+%p
+  %b Full Info:
+  = @coffee_type.fullInfo
+ 
+  %p
+  %b Drinks:
+  = @coffee_type.drinks  
+ 
+= link_to 'Edit', edit_coffee_type_path(@coffee_type)
+\|
+= link_to 'Back', coffee_types_path

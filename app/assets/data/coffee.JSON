@@ -1,0 +1,65 @@
+[
+  {
+    "id":"",
+    "name":"ESPRESSO RISTRETTO",
+    "image":"",
+    "type":"Intense",
+    "temp":"",
+    "caffeinated":"",
+    "basicInfo":"Delightfully short for a bolder fuller flavour."
+  },
+  {
+    "id":"",
+    "name":"GRANDE INTENSO",
+    "image":"",
+    "type":"Intense",
+    "temp":"",
+    "caffeinated":"",
+    "basicInfo":"A mug of bold, full-bodied coffee – enjoy with or without milk."
+  },
+  {
+    "id":"",
+    "name":"LUNGO INTENSO",
+    "image":"",
+    "type":"Intense",
+    "temp":"",
+    "caffeinated":"",
+    "basicInfo":"The more intense version of the 'stretched' espresso. Enjoy with or without milk."
+  },
+  {
+    "id":"",
+    "name":"MARRAKESH STYLE TEA",
+    "image":"",
+    "type":"Unexpected",
+    "temp":"",
+    "caffeinated":"",
+    "basicInfo":"A blend of aromatic green tea, intensely flavourful and refreshing mint, topped with NESCAFÉ® Dolce Gusto’s infamous mousse and sweetened to perfection."
+  },
+  {
+    "id":"",
+    "name":"MOCHA",
+    "image":"",
+    "type":"Chocolatey",
+    "temp":"",
+    "caffeinated":"",
+    "basicInfo":"Rich coffee with a delightful chocolate twist."
+  },
+  {
+    "id":"",
+    "name":"CHOCOCINO",
+    "image":"",
+    "type":"Chocolatey",
+    "temp":"",
+    "caffeinated":"",
+    "basicInfo":"A pure hit of devilishly creamy hot chocolate."
+  },
+  {
+    "id":"",
+    "name":"LATTE MACCHIATO",
+    "image":"",
+    "type":"Frothy",
+    "temp":"",
+    "caffeinated":"",
+    "basicInfo":"Steamed frothy milk on a layer of smooth, aromatic, full-bodied espresso."
+  }
+]

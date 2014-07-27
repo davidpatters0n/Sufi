@@ -1,0 +1,86 @@
+<div ng-controller="TranslateCtrl">
+    <div class="navbar navbar-inverse">
+        <div navbar class="navbar-inner">
+            <h1>{{ 'HEADLINE' | translate }}</h1>
+        </div>
+    </div>
+</div>
+
+<div ng-init="perPage=5; currentPage=1;">
+
+  <div class="navbar">
+    <div navbar class="coffeenavbar">
+      <div ng-init="perPage=5; currentPage=1;">
+        {{'SEARCH_TEXT' | translate}} <input ng-model="search">
+        {{'SORT_BY' | translate}}
+        <select ng-model="orderProp">
+          <option value="name">{{'ORDER_ALPHABETICAL' | translate}}</option>
+          <option value="type">{{'TYPE' | translate}}</option>
+        </select>
+        
+        {{'COFFEE_TYPE' | translate}}
+        <select ng-model="coffeeType" ng-click="loadRestrictions(search, coffeeType, perPage, currentPage)">
+          <option value="All">{{'ALL'|translate}}</option>
+          <option value="Intense">{{'INTENSE'|translate}}</option>
+          <option value="Unexpected">{{'UNEXPECTED'|translate}}</option>
+          <option value="Chocolatey">{{'CHOCOLATELY'|translate}}</option>
+          <option value="Frothy">{{'FROTHY'|translate}}</option> 
+          <option value="Cool">{{'COOL'|translate}}</option>
+          <option value="Morning">{{'MORNING'|translate}}</option>
+        </select>
+        <button id = "searchButton" ng-click="loadRestrictions(search, coffeeType, perPage, currentPage)">{{'SEARCH_BUTTON'|translate}}</button>
+        <div ng-controller="CreateCtrl" style="float:right">
+          <button id = "createCoffee"><a href="#/coffees/create">{{'CREATE_COFFEE'|translate}}</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-fluid"> 
+    <ul class="coffees">
+      <li class="span4 coffeeitem" ng-repeat="coffee in (filteredItems = (coffees | orderBy:orderProp | filter:orderType))">
+          <a href = "#/coffees/{{coffee.id}}">{{coffee.name}}</a>
+        <p>{{coffee.basicInfo}}</p>
+  			<button class="coffeebutton" type="button">{{'ADD_TO_LIST'|translate}}</button>
+      </li>
+  		<p ng-show="coffees.length == 0" id="message">{{'MESSAGE'|translate}}</p>
+    </ul>
+  </div>
+
+  <form id="pages" action="">
+    {{'PAGE'|translate}} {{currentPage}} of {{num_pages}} ({{total_coffees}} Coffees)
+    <div class="row-fluid">
+      <div class="span8 offset4">
+        <ul>
+          <li id="pagtitle">{{'RESULTS_PER_PAGE'|translate}} </li>
+          <li><input class="resultschoice" ng-model="results" type="radio" name="results" id = "5results" value="5" ng-checked="true" ng-click="perPage=5;loadRestrictions(search, coffeeType, perPage, currentPage);">5</li>
+        	 <li><input class="resultschoice" ng-model="results" type="radio" name="results" id = "10results" value="10" ng-click="perPage=10;loadRestrictions(search, coffeeType, perPage, currentPage);">10</li>
+        	 <li><input class="resultschoice" ng-model="results" type="radio" name="results" id = "20results" value="20" ng-click="perPage=20;loadRestrictions(search, coffeeType, perPage, currentPage);">20</li>
+          <li><input class="resultschoice" ng-model="results" type="radio" name="results" id = "allresults" value="-1" ng-click="perPage=-1;loadRestrictions(search, coffeeType, perPage, currentPage);">{{'RESTRICTION_ALL'|translate}}</li>
+        </ul>
+      </div>
+    </div>
+  </form>
+
+  <div style="clear:both;"><div>
+    <ul class="pager">
+    	<li><button ng-disabled="currentPage == 1" ng-click="currentPage=currentPage-1; loadRestrictions(search, coffeeType, perPage, currentPage);" id="prevBtn">{{'PREVIOUS_PAGE'|translate}}</button></li>
+    	<li><button ng-disabled="currentPage >= num_pages" ng-click="currentPage=currentPage+1; loadRestrictions(search, coffeeType, perPage, currentPage);" id="nextBtn">{{'NEXT_PAGE'|translate}}</button></li>
+    </ul>
+  </div>
+</div>
+
+<div ng-controller="TranslateCtrl">
+  <button ng-click="changeLanguage('de')" translate="BUTTON_TEXT_DE">Convert German</button>
+  <button ng-click="changeLanguage('en')" translate="BUTTON_TEXT_EN">Convert</button>
+</div>
+
+
+<!-- <select ng-controller="TranslateCtrl">
+  <option ng-click="changeLanguage('en')" translate>BUTTON_TEXT_EN</option>
+  Convert English</option>
+   <option ng-click="changeLanguage('de')" translate>BUTTON_TEXT_DE</option>
+  Convert German</option>
+</select>
+        <option ng-click="...." translate>BUTTON_TEXT_EN</option>
+ -->

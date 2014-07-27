@@ -1,0 +1,16 @@
+= simple_form_for(@coffee_type) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :image
+    = f.input :type_of_coffee
+    = f.input :temp
+    = f.input :caffeinated
+    = f.input :basicInfo
+    = f.input :price
+    = f.input :fullInfo
+    = f.input :drinks
+
+  .form-actions
+    = f.button :submit

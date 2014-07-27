@@ -1,0 +1,139 @@
+-content_for :head do
+  = javascript_include_tag "application"
+  :javascript
+    angular.module("ngLocale", [], ["$provide", function($provide) {
+    var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "many", OTHER: "other"};
+    $provide.value("$locale", {
+      "DATETIME_FORMATS": {
+        "AMPMS": {
+          "0": "a.m.",
+          "1": "p.m."
+        },
+        "DAY": {
+          "0": "domingo",
+          "1": "lunes",
+          "2": "martes",
+          "3": "mi\u00e9rcoles",
+          "4": "jueves",
+          "5": "viernes",
+          "6": "s\u00e1bado"
+        },
+        "MONTH": {
+          "0": "enero",
+          "1": "febrero",
+          "2": "marzo",
+          "3": "abril",
+          "4": "mayo",
+          "5": "junio",
+          "6": "julio",
+          "7": "agosto",
+          "8": "septiembre",
+          "9": "octubre",
+          "10": "noviembre",
+          "11": "diciembre"
+        },
+        "SHORTDAY": {
+          "0": "dom",
+          "1": "lun",
+          "2": "mar",
+          "3": "mi\u00e9",
+          "4": "jue",
+          "5": "vie",
+          "6": "s\u00e1b"
+        },
+        "SHORTMONTH": {
+          "0": "ene",
+          "1": "feb",
+          "2": "mar",
+          "3": "abr",
+          "4": "may",
+          "5": "jun",
+          "6": "jul",
+          "7": "ago",
+          "8": "sep",
+          "9": "oct",
+          "10": "nov",
+          "11": "dic"
+        },
+        "fullDate": "EEEE, d 'de' MMMM 'de' y",
+        "longDate": "d 'de' MMMM 'de' y",
+        "medium": "dd/MM/yyyy HH:mm:ss",
+        "mediumDate": "dd/MM/yyyy",
+        "mediumTime": "HH:mm:ss",
+        "short": "dd/MM/yy HH:mm",
+        "shortDate": "dd/MM/yy",
+        "shortTime": "HH:mm"
+      },
+      "NUMBER_FORMATS": {
+        "CURRENCY_SYM": "\u20ac",
+        "DECIMAL_SEP": ",",
+        "GROUP_SEP": ".",
+        "PATTERNS": {
+          "0": {
+            "gSize": 3,
+            "lgSize": 3,
+            "macFrac": 0,
+            "maxFrac": 3,
+            "minFrac": 0,
+            "minInt": 1,
+            "negPre": "-",
+            "negSuf": "",
+            "posPre": "",
+            "posSuf": ""
+          },
+          "1": {
+            "gSize": 3,
+            "lgSize": 3,
+            "macFrac": 0,
+            "maxFrac": 2,
+            "minFrac": 2,
+            "minInt": 1,
+            "negPre": "-",
+            "negSuf": "\u00a0\u00a4",
+            "posPre": "",
+            "posSuf": "\u00a0\u00a4"
+          }
+        }
+      },
+      "id": "es-es",
+      "pluralCat": function (n) {  if (n == 1) {   return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+    });
+    }]);
+
+    function EspAppCntl($scope){
+      $scope.input = 1378391038021;
+      $scope.plInput = 1;
+      $scope.person1 = "Shanjian";
+      $scope.person2 = "Di";
+      $scope.plInput2 = "";
+    }
+
+%div{"ng-controller" => "EspAppCntl"}
+  %h3 Espana: Datetime/Number/Currency filters demo:
+  %input{"ng-model" => "input", :type => "text", :value => "1378391038021"}/
+  %p date(medium): {{input | date:"medium"}}
+  .alert.alert-error Neither Javascript nor Angular currently supports displaying the date with a timezone specified by the developer.
+  %p.alert-info date(longDate): {{input | date:"longDate"}}
+  .alert.alert-warning  Keep in mind that translated strings/datetime formats can vary greatly in length. For example, June 3, 1977 will be translated to Spanish as 3 de junio de 1977. make sure UI components do not overlap.
+  %p number: {{input | number}}
+  %p currency: {{input | currency }}
+  .alert.alert-warning if you want to display account balance of 1000 dollars with the following binding containing currency filter: {{ 1000 | currency }}, and your app is currently in en-US locale. '$1000.00' will be shown. However, if someone in a different local (say, Japan) views your app, her browser will specify the locale as ja, and the balance of '¥1000.00' will be shown instead.
+  .muted
+    %b Next  step:
+    =link_to "https://github.com/fnando/i18n-js","https://github.com/fnando/i18n-js"
+  %hr/
+  .row-fluid
+    .span6
+      %h3 Pluralization demo:
+      %input.input-small{"ng-model" => "plInput", :type => "text"}/
+      %ng-pluralize{:count => "plInput", :when => "{ '0': 'You have no email!',\n                           'one': 'You have one email!',\n                           'other': 'You have {} emails!'}"}
+    .span6
+      %h3 Pluralization demo with offsets:
+      Name of person1:
+      %input{"ng-model" => "person1", :type => "text"}/
+      %br/
+      Name of person2:
+      %input{"ng-model" => "person2", :type => "text"}/
+      .well.well-small
+        %input{"ng-model" => "plInput2", :type => "text", placeholder:"Type a number here"}/
+        %ng-pluralize{:count => "plInput2", :offset => "2", :when => "{'0':'Nobody is viewing!',\n'1':'{{person1}} is viewing!',\n '2': '{{person1}} and {{person2}} are viewing!',\n'3': '{{person1}}, {{person2}} and one other person are viewing!',\n'other': '{{person1}}, {{person2}} and {} other people are viewing!'}"}

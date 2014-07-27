@@ -1,0 +1,154 @@
+/* $iconSpritePath: "../images/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png"; */
+
+/*@import "bootstrap-sass/lib/bootstrap"; 
+
+/* Put your CSS here */
+body {
+    background-image:url('../images/coffee.jpg');
+    background-size:100%;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+table td{
+    padding: 10px;
+}
+
+button{
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color:#9B8678;
+    border:2px solid #AD9889;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -o-border-radius:3px;
+    border-radius:3px;
+    margin:10px;
+}
+
+input, select, option, textarea{
+    background-color:#9B8678 !important;
+    border:2px solid #AD9889 !important;
+    -webkit-border-radius:3px !important;
+    -moz-border-radius:3px !important;
+    -o-border-radius:3px !important;
+    border-radius:3px !important;
+    color:black !important;
+    margin: 0px 10px 0px 10px !important;
+}
+
+a{
+    color:white;
+}
+
+a:hover{
+    color:white;
+}
+
+.hero-unit {
+    margin: 50px auto 0 auto;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 60px;
+}
+
+.hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.coffees li {
+    height: 150px !important;
+    margin-left: 0 !important;
+    margin-right:1.12766%;
+}
+
+.navbar h1{
+    color:white;
+    text-align:center;
+}
+
+#pages li{
+    width:50px;
+    padding:2px;
+    border:5px;
+    float:left;
+    list-style:none;
+}
+
+#pagtitle{
+    width:130px !important;
+}
+
+#pages{
+    margin-top:20px;
+    text-align:center;
+}
+
+#createform{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+
+#coffeedetails{
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    text-align: center;
+}
+
+#createform input.ng-invalid.ng-dirty, #createform textarea.ng-invalid.ng-dirty{
+    background-color: #FA787E !important;
+}
+
+.coffeeitem{
+    border:3px solid #473D39;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -o-border-radius:3px;
+    border-radius:3px;
+    padding:20px;
+    background-color: #241C19;
+    color: white;
+    margin-top:10px;
+}
+
+.coffeeitem a{
+    color:white;
+    font-weight:800;
+}
+
+.coffeenavbar{
+    background-color:#333;
+    padding:10px;
+     -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -o-border-radius:3px;
+    border-radius:3px;
+    color:white;
+    text-align:center;
+}
+
+.resultschoice{
+    vertical-align: top;
+}
+
+.message{
+    font-size:12px;
+    color:#FFFFFF;
+    margin: 0px 10px 0px 10px;
+}
+
+.breadcrumb{
+    background-color: transparent;
+}
+
+.breadcrumb li{
+    text-shadow: 0px 0px;
+}

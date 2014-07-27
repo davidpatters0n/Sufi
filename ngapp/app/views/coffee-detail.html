@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title> Coffee Details </title>
+	</head>
+	<body>
+		<div class = "navbar navbar-inverse">
+			<div navbar class = "navbar-inner">
+				<h1>Coffee Details</h1>
+			</div>
+		</div>
+
+		<ul class="breadcrumb">
+			<li><a href="#">Home</a> <span class="divider">/</span></li>
+			<li class="active">Coffee Details</li>
+		</ul>
+
+		<div id = "coffeedetails" class = "coffeeitem">
+			<coffeeinfo></coffeeinfo>
+			<div ng-controller = "EditCtrl">
+				<button ng-click = "updateCoffee()" type = "button" id = "updateCoffee">Update Coffee</button>
+				<button ng-click = "deleteCoffee(31)" type = "button" id = "deleteCoffee">Delete Coffee</button>
+			</div>
+		</div>
+	</body>
+</html>
+

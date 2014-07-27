@@ -1,0 +1,85 @@
+<html ng-app = "create_form">
+	<head>
+		<title> Creating a New Coffee </title>
+	</head>
+	<body>
+		<div class = "navbar navbar-inverse">
+			<div navbar class = "navbar-inner">
+				<h1>Create a New Coffee</h1>
+			</div>
+		</div>
+		
+		<ul class="breadcrumb">
+			<li><a href="#">Home</a> <span class="divider">/</span></li>
+			<li class="active">Create Coffee</li>
+		</ul>
+
+		<form  id = "createform" name = "form" class = "coffeeitem" novalidate>
+			<table>
+				<tr>
+					<td><label for = "name">Name:</label></td>
+					<td>
+						<input type = "text" ng-model = "coffee.name" name = "name" required/>
+						<div ng-show = "form.name.$dirty">
+							<span class = "message" ng-show = "form.name.$error.required"> Please enter the coffee name</span>
+						</div>
+					</td>
+				</tr>
+
+				<tr>   
+					<td><label for = "type">Type:</label></td>
+					<td>
+						<input type = "text" ng-model = "coffee.type_of_coffee" name = "type" required/>
+						<div ng-show = "form.type.$dirty">
+							<span class = "message" ng-show = "form.type.$error.required"> Please enter the coffee type</span>
+						</div>      
+					</td>
+				</tr>
+
+				<tr> 	
+					<td><label for = "temp">Temperature (C):</label></td>
+					<td>	
+						<input ng-model = "coffee.temp" type = "number" name = "temp"  min = "0" max = "100" integer required/>
+						<div ng-show = "form.temp.$dirty">
+							<span class = "message" ng-show = "form.temp.$error.required"> Please enter the coffee temperature</span> 
+							<span class = "message" ng-show = "form.temp.$error.min || form.temp.$error.max"> The temperature must be within range 0 to 100!</span>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td><label for = "caff">Caffeinated?</label></td>	
+					<td>
+						<input ng-model = "coffee.caffeinated" type = "radio" name =  "caff" value = "yes" ng-checked = "true"/>Yes
+						<input ng-model = "coffee.caffeinated" type = "radio" name =  "caff" value = "no"/>No
+					</td>
+				</tr>
+
+				<tr>
+					<td><label for = "info">Further Information:</label></td>
+					<td>
+						<textarea ng-model = "coffee.basicInfo" name = "info" rows = 3 cols = 30 required/>
+						<div ng-show = "form.info.$dirty">
+							<span class = "message" ng-show = "form.info.$error.required"> Please enter additional information</span>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td><label for = "info">Price (£):</label></td>
+					<td>
+						<input type = "text" ng-model = "coffee.price" name = "price" required/>
+						<div ng-show = "form.price.$dirty">
+							<span class = "message" ng-show = "form.price.$error.required"> Please enter the coffee price</span>
+						</div> 
+					</td> 
+				</tr>
+
+			</table>
+
+			<div ng-controller = "CreateCtrl">
+				<button ng-click = "saveCoffee()" ng-disabled="form.$invalid" type = "button" id = "saveCoffee">Create New Coffee!</button>
+			</div>
+		</form>
+	</body>
+</html>

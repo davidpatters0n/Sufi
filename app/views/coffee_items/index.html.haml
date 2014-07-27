@@ -1,0 +1,17 @@
+%h1 Listing coffee_items
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @coffee_items.each do |coffee_item|
+    %tr
+      %td= link_to 'Show', coffee_item
+      %td= link_to 'Edit', edit_coffee_item_path(coffee_item)
+      %td= link_to 'Destroy', coffee_item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Coffee item', new_coffee_item_path
